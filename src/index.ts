@@ -1,7 +1,13 @@
 import { sampleRow, SinglesRowData } from "./model";
 
-let app = document.getElementById("app")!;
+const app = document.getElementById("app")!;
+const status = document.getElementById("status")!;
 app.innerHTML = "<h1>It works</h1>";
+
+const toggleBackground = (elm: HTMLElement, color: string) => {
+  elm.style.backgroundColor =
+    elm.style.backgroundColor === color ? "initial" : color;
+};
 
 const createTable = (sampleRows: SinglesRowData[], parent: HTMLElement) => {
   if (sampleRows.length === 0) return;
@@ -27,6 +33,22 @@ const createTable = (sampleRows: SinglesRowData[], parent: HTMLElement) => {
       row.appendChild(td);
     });
   });
+
+  // handlers : skip the header
+  let bidIndx = columnNames.indexOf("bid");
+  let askIndx = columnNames.indexOf("ask");
+  for (let i = 0; i < t.rows.length; i++) {
+    t.rows[i].cells[bidIndx].addEventListener("click", () => {
+      toggleBackground(t.rows[i].cells[bidIndx], "red");
+
+      const legs = document.createElement("div");
+      legs.innerText = t.rows[i].cells[bidIndx].innerText;
+      status.appendChild(legs);
+    });
+    t.rows[i].cells[askIndx].addEventListener("click", () => {
+      toggleBackground(t.rows[i].cells[askIndx], "green");
+    });
+  }
 
   return parent.appendChild(t);
 };
