@@ -5,14 +5,14 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
+    "prebuild": "npx tailwindcss build style.css -o ./static/css/main.css",
     "build": "parcel build index.html"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tailwindcss": "1.4.6"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.6.1"
   },
-  "keywords": [
-    "typescript",
-    "javascript"
-  ]
+  "keywords": ["typescript", "javascript"]
 }
