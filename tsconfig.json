@@ -6,8 +6,9 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "allowJs": true,
+    "target": "ESNext",
     "lib": [
-      "es6",
+      "ESNext",
       "dom"
     ],
     "rootDir": "src",

@@ -1,4 +1,6 @@
-import { sampleRow, SinglesRowData } from "./model";
+import { sampleRow, SinglesRowData } from "./model/model";
+import { DataFrame } from "./views/DataFrame";
+import { DFColumnName } from "./ConstTypes";
 
 const app = document.getElementById("app")!;
 const status = document.getElementById("status")!;
@@ -54,5 +56,10 @@ const createTable = (sampleRows: SinglesRowData[], parent: HTMLElement) => {
 };
 
 window.onmousedown = () => {
-  createTable([sampleRow, sampleRow], app);
+  // createTable([sampleRow, sampleRow], app);
+  const df = new DataFrame(Object.keys(sampleRow) as DFColumnName[], [
+    Object.values(sampleRow) as (string | number)[]
+    //Object.values(sampleRow) as (string | number)[]
+  ]).getDOM();
+  document.body.appendChild(df);
 };
