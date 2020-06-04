@@ -9,3 +9,5 @@ export type DFColumnName =
   | "Theta";
 
 export type CellType = "th" | "td";
+
+export type PriceData = { [key in DFColumnName]: number };

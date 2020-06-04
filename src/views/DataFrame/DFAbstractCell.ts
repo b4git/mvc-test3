@@ -1,4 +1,4 @@
-import { CellType } from "../ConstTypes";
+import { CellType } from "../../ConstTypes";
 
 export abstract class DFAbstractCell {
   handleClick() {

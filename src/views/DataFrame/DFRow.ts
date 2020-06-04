@@ -1,5 +1,5 @@
 import { DFCell } from "./DFCell";
-import { DFColumnName } from "../ConstTypes";
+import { DFColumnName } from "../../ConstTypes";
 import { DFStrikeCell } from "./DFStrikeCell";
 import { DFTradeCell } from "./DFTradeCell";
 
@@ -24,7 +24,7 @@ export class DFRow {
 
   getDOM = () => this.dom;
 
-  private appendCell(columnName: DFColumnName, cellDatum: string | number) {
+  appendCell(columnName: DFColumnName, cellDatum: string | number) {
     const dfCell = DFCellFactory.createCell(columnName, cellDatum);
     this.dfCells.push(dfCell);
     this.dom.appendChild(dfCell.getDOM());

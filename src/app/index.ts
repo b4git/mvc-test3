@@ -1,6 +1,7 @@
-import { sampleRow, SinglesRowData } from "./model/model";
-import { DataFrame } from "./views/DataFrame";
-import { DFColumnName } from "./ConstTypes";
+import { sampleRow, SinglesRowData } from "../model/model";
+import { DataFrame } from "../views";
+import { DFColumnName } from "../ConstTypes";
+import { JointDF } from "../views/JointDF/JointDF";
 
 const app = document.getElementById("app")!;
 const status = document.getElementById("status")!;
@@ -11,7 +12,10 @@ const toggleBackground = (elm: HTMLElement, color: string) => {
     elm.style.backgroundColor === color ? "initial" : color;
 };
 
-const createTable = (sampleRows: SinglesRowData[], parent: HTMLElement) => {
+export const createTable = (
+  sampleRows: SinglesRowData[],
+  parent: HTMLElement
+) => {
   if (sampleRows.length === 0) return;
 
   const t: HTMLTableElement = document.createElement("table");
@@ -55,11 +59,22 @@ const createTable = (sampleRows: SinglesRowData[], parent: HTMLElement) => {
   return parent.appendChild(t);
 };
 
-window.onmousedown = () => {
+export const generateDF = () => {
   // createTable([sampleRow, sampleRow], app);
   const df = new DataFrame(Object.keys(sampleRow) as DFColumnName[], [
     Object.values(sampleRow) as (string | number)[]
     //Object.values(sampleRow) as (string | number)[]
   ]).getDOM();
   document.body.appendChild(df);
+};
+
+const generateJointDF = () => {
+  // createTable([sampleRow, sampleRow], app);
+
+  const df = new JointDF(["Bid", "Ask"], [], ["Bid", "Ask"], [], "Strike");
+  document.body.appendChild(df.getDOM());
+};
+
+window.onmousedown = () => {
+  generateJointDF();
 };

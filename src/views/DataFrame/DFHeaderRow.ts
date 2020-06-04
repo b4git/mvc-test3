@@ -1,5 +1,5 @@
 import { DFCell } from "./DFCell";
-import { DFColumnName } from "../ConstTypes";
+import { DFColumnName } from "../../ConstTypes";
 import { DFHeaderCell } from "./DFHeaderCell";
 
 export class DFHeaderRow {
