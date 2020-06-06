@@ -1,9 +1,9 @@
-import { DFCell } from "./DFCell";
+import { DFField } from "./DFCell";
 
 /**
  * Represents buy/sell/bid/ask trade buttons
  */
-export class DFTradeCell extends DFCell {
+export class DFTradeCell extends DFField {
   handleClick() {
     alert("DFTradeCell : Got it!");
   }

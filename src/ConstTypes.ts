@@ -1,4 +1,4 @@
-export type DFColumnName =
+export type OptionsAttribute =
   | "Strike"
   | "Bid"
   | "Ask"
@@ -10,4 +10,11 @@ export type DFColumnName =
 
 export type CellType = "th" | "td";
 
-export type PriceData = { [key in DFColumnName]: number };
+export type PriceData = { [key in OptionsAttribute]: number };
+
+export type FieldContent = HTMLElement; /// string | number;
+
+export type DFIndex = {
+  row: number;
+  column: number;
+};

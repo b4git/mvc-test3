@@ -1,11 +1,12 @@
-import { DFAbstractCell } from "./DFAbstractCell";
+import { DFAbstractField } from "./DFAbstractCell";
+//import { FieldContent } from "../../ConstTypes";
 
-export class DFCell extends DFAbstractCell {
+export class DFField extends DFAbstractField {
   /**
    *
-   * @param cellData can be html
+   * @param fieldContent can be html
    */
-  constructor(cellData: string | number) {
-    super(cellData, "td");
-  }
+  // constructor(fieldContent: FieldContent) {
+  //   super(fieldContent);
+  // }
 }

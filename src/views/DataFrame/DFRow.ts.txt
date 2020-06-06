@@ -1,11 +1,11 @@
-import { DFCell } from "./DFCell";
+import { DFField } from "./DFCell";
 import { DFColumnName } from "../../ConstTypes";
 import { DFStrikeCell } from "./DFStrikeCell";
 import { DFTradeCell } from "./DFTradeCell";
 
 export class DFRow {
   protected dom: HTMLTableRowElement;
-  protected dfCells: DFCell[] = [];
+  protected dfCells: DFField[] = [];
 
   constructor(
     private columnNames: DFColumnName[],
@@ -45,7 +45,7 @@ export class DFCellFactory {
       case "Strike":
         return new DFStrikeCell(cellDatum);
       default:
-        return new DFCell(cellDatum);
+        return new DFField(cellDatum);
     }
   }
 }

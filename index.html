@@ -14,11 +14,43 @@
       #status {
         flex: 1;
       }
+      table {
+        text-align: center;
+        color: gray;
+      }
+      th {
+        padding: 0.1em;
+        font-size: 1.2em;
+      }
+      td *,
+      th * {
+        padding: 1em;
+        min-width: 6ch;
+      }
+      tr:first-child {
+        background: black;
+        color: lightgray;
+      }
+      tr:nth-child(2n) {
+        background: lightgray;
+      }
+      td:nth-child(4) {
+        background: black;
+        color: lightgray;
+      }
+      body {
+        background: orange;
+      }
     </style>
   </head>
 
   <body>
     <div id="container">
+      <div>
+        <div id="auth">Common Auth</div>
+        <div id="data_auth">Data Auth</div>
+        <div id="trading_auth">Trades Auth</div>
+      </div>
       <div id="app"></div>
       <div id="status">
         Tables should update here! <a href="./static/tables.html">Tables</a>

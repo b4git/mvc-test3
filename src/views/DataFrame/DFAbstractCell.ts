@@ -1,20 +1,26 @@
-import { CellType } from "../../ConstTypes";
+import { FieldContent } from "../../ConstTypes";
 
-export abstract class DFAbstractCell {
+/**
+ * Field element -- a container or parent element for everything inside a grid cell
+ */
+export abstract class DFAbstractField {
   handleClick() {
-    console.log("Abstract DFCell : no action implemented");
+    console.log("Abstract DFAbstractField : no action implemented");
   }
 
   /** document object model for this view element */
-  protected dom: HTMLTableCellElement;
+  protected dom: HTMLDivElement;
 
   /**
    *
-   * @param cellData can be html
+   * @param fieldContent can be html
    */
-  constructor(protected cellData: string | number, cellType: CellType) {
-    this.dom = document.createElement(cellType);
-    this.dom.innerHTML = cellData + "";
+  constructor(protected fieldContent?: FieldContent | string) {
+    this.dom = document.createElement("div");
+    if (fieldContent) {
+      if (typeof fieldContent === "string") this.dom.innerHTML = fieldContent;
+      else this.dom.appendChild(fieldContent);
+    }
   }
 
   getDOM = () => this.dom;

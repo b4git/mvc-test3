@@ -1,10 +1,10 @@
-import { DFCell } from "./DFCell";
+import { DFField } from "./DFCell";
 import { DFColumnName } from "../../ConstTypes";
 import { DFHeaderCell } from "./DFHeaderCell";
 
 export class DFHeaderRow {
   protected dom: HTMLTableRowElement;
-  protected dfCells: DFCell[] = [];
+  protected dfCells: DFField[] = [];
 
   constructor(private headerNames: DFColumnName[]) {
     this.dom = document.createElement("tr");

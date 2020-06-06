@@ -1,6 +1,6 @@
-import { DFAbstractCell } from "./DFAbstractCell";
+import { DFAbstractField } from "./DFAbstractCell";
 
-export class DFHeaderCell extends DFAbstractCell {
+export class DFHeaderCell extends DFAbstractField {
   /**
    *
    * @param cellData can be html
